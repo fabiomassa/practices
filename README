@@ -1,0 +1,10 @@
+Projeto com boas práticas de testes unitários.
+
+Exemplos com:
+- object mother
+- mockito
+- selenium
+- stubs
+- junit
+
+obs: Boa parte da estrutura aprendi com o @jonasabreu, vocês vão encontrar referências de algumas classes que ele criou.

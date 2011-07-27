@@ -1,0 +1,58 @@
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+	<display-name>AWSite</display-name>
+	
+<!--	<context-param>-->
+<!--	    <param-name>br.com.caelum.vraptor.encoding</param-name>-->
+<!--	    <param-value>UTF-8</param-value>-->
+<!--	</context-param>-->
+	
+	<listener>
+		<listener-class>net.vidageek.i18n.el.I18nContextListener</listener-class>
+	</listener>
+	
+	<!-- I18n -->
+	<filter>
+		<filter-name>i18n</filter-name>
+		<filter-class>net.vidageek.i18n.filter.I18nFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>i18n</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>vraptor</filter-name>
+		<filter-class>br.com.caelum.vraptor.VRaptor</filter-class>
+	</filter>
+
+	<!-- Sitemesh -->
+	<filter>
+		<filter-name>sitemesh</filter-name>
+		<filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>sitemesh</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>vraptor</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	
+	<jsp-config>
+		<jsp-property-group>
+			<scripting-invalid>true</scripting-invalid>
+			<url-pattern>*.jsp</url-pattern>
+		</jsp-property-group>
+	</jsp-config>
+	
+</web-app>
+
