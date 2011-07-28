@@ -9,20 +9,8 @@
                 </layout>
         </appender>
 
-        <logger name="br.com.caelum">
-                <level value="INFO" />
-        </logger>
-        
-        <logger name="net.vidageek">
-                <level value="DEBUG" />
-        </logger>
-        
-        <logger name="net.vidageek.i18n.message">
-                <level value="INFO" />
-        </logger>
-        
         <logger name="br.com.adaptworks">
-                <level value="TRACE" />
+                <level value="INFO" />
         </logger>
         
         <root>

@@ -10,10 +10,10 @@ import br.com.caelum.vraptor.ioc.RequestScoped;
 @RequestScoped
 public class HibernateSessionComponentFactory implements ComponentFactory<Session> {
 
-	private final AwsiteSessionFactory factory;
+	private final PracticesSessionFactory factory;
 	private Session session;
 
-	public HibernateSessionComponentFactory(final AwsiteSessionFactory factory) {
+	public HibernateSessionComponentFactory(final PracticesSessionFactory factory) {
 		this.factory = factory;
 	}
 

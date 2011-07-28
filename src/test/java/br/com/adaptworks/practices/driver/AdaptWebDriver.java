@@ -1,4 +1,4 @@
-package br.com.adaptworks.awsite.driver;
+package br.com.adaptworks.practices.driver;
 
 import java.util.List;
 import java.util.Set;
@@ -9,8 +9,6 @@ import org.openqa.selenium.RenderedWebElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import br.com.adaptworks.awsite.bd.Usuario;
-
 public class AdaptWebDriver implements WebDriver {
 
 	private final WebDriver driver;
@@ -19,27 +17,17 @@ public class AdaptWebDriver implements WebDriver {
 		this.driver = driver;
 	}
 
+	@Override
 	public String getCurrentUrl() {
 		return driver.getCurrentUrl();
 	}
 
-	public void login(final Usuario user) {
-		login(driver, user);
-
-	}
-
-	private void login(final WebDriver driver, final Usuario user) {
-		driver.get("http://localhost:8088/awsite/login");
-
-		driver.findElement(By.name("usuario.email")).sendKeys(user.getEmail());
-		driver.findElement(By.name("usuario.senha")).sendKeys(user.getSenha());
-		driver.findElement(By.id("login-button")).click();
-	}
-
+	@Override
 	public void close() {
 		driver.close();
 	}
 
+	@Override
 	public WebElement findElement(final By by) {
 		return driver.findElement(by);
 	}
@@ -68,53 +56,65 @@ public class AdaptWebDriver implements WebDriver {
 	}
 
 	private boolean browserDoesNotSupportJavascript(final WebElement resultsDiv) {
-		return !RenderedWebElement.class.isAssignableFrom(resultsDiv.getClass());
+		return !RenderedWebElement.class
+				.isAssignableFrom(resultsDiv.getClass());
 	}
 
 	// Delegate methods to keep Java happy
 
+	@Override
 	public List<WebElement> findElements(final By arg0) {
 		return driver.findElements(arg0);
 	}
 
+	@Override
 	public void get(final String arg0) {
 		driver.get(arg0);
 	}
 
+	@Override
 	public String getPageSource() {
 		return driver.getPageSource();
 	}
 
+	@Override
 	public String getTitle() {
 		return driver.getTitle();
 	}
 
+	@Override
 	public String getWindowHandle() {
 		return driver.getWindowHandle();
 	}
 
+	@Override
 	public Set<String> getWindowHandles() {
 		return driver.getWindowHandles();
 	}
 
+	@Override
 	public Options manage() {
 		return driver.manage();
 	}
 
+	@Override
 	public Navigation navigate() {
 		return driver.navigate();
 	}
 
+	@Override
 	public void quit() {
 		driver.quit();
 	}
 
+	@Override
 	public TargetLocator switchTo() {
 		return driver.switchTo();
 	}
 
 	public boolean accessWasForbidden() {
-		return driver.findElement(By.tagName("title")).getText().contains("403 Error");
+		return driver.findElement(By.tagName("title")).getText()
+				.contains("403 Error");
 	}
 
 }

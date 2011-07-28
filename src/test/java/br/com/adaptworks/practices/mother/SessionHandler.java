@@ -1,4 +1,4 @@
-package br.com.adaptworks.awsite.mother;
+package br.com.adaptworks.practices.mother;
 
 import org.hibernate.Session;
 

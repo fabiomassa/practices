@@ -1,8 +1,8 @@
-package br.com.adaptworks.awsite.mother;
+package br.com.adaptworks.practices.mother;
 
 import org.hibernate.Session;
 
-import br.com.adaptworks.vraptor.factory.AwsiteSessionFactory;
+import br.com.adaptworks.vraptor.factory.PracticesSessionFactory;
 
 /**
  * @author jonasabreu
@@ -11,10 +11,10 @@ import br.com.adaptworks.vraptor.factory.AwsiteSessionFactory;
 final public class NoCommitSessionHandler implements SessionHandler {
 
 	private final Session session;
-	private final AwsiteSessionFactory factory;
+	private final PracticesSessionFactory factory;
 
 	public NoCommitSessionHandler() {
-		factory = new AwsiteSessionFactory();
+		factory = new PracticesSessionFactory();
 		session = factory.openSession();
 		session.beginTransaction();
 	}
