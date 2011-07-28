@@ -19,8 +19,14 @@ public class CarroController {
 
 	@Get
 	@Path("/admin/carros")
-	public void usuarios() {
+	public void carros() {
 		result.include("carros", carroDao.list());
+	}
+
+	@Get
+	@Path("/admin/carros/{marca}")
+	public void carros(final String marca) {
+		result.include("carros", carroDao.listByBrand(marca));
 	}
 
 }

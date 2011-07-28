@@ -1,3 +1,16 @@
 Projeto com alguns exemplos de testes usando o padrão Object Mother
 
 - Em junho desse ano citei essa pattern na minha palestra no Agile Brazil, algumas pessoas ficaram curiosas e prometi que criaria um projeto com alguns exemplos para facilitar o entendimento, apesar da demora, ele esta aqui.
+
+- Abram a classe CarroDaoIntegrationTest coloquei lá simples exemplos de testes usando a classe mãe, acredito que está de fácil entendimento :)
+
+- Esse é um projeto web, caso queiram, podem fazer o deploy e navegar nele usando algum conteiner
+
+- Vocês vão perceber 2 arquivos de configuração do hibernate, 1 destinado para o ambiente de desenvolvimento e outro específico para testes, é o caso de termos ambientes separados de dev e testes. Podem adicionar outro só para produção. (production)
+
+- Vocês podem iniciar a classe mother com 2 tipos diferentes de classes:
+	1) new Mother(new NoCommitSessionHandler()) - Objetos ficam na session apenas
+	2) new Mother(new CommitSessionHandler()) - Objetos são persistidos no banco (ideal para testes que exijam navegação) e no fim dos testes eles são excluídos
+
+
+PS: Essa é a primeira fase do projeto, vou atualizando com outros exemplos assim que possível, qualquer dúvida é só twittar @fabiomassa
